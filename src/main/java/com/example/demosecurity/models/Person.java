@@ -1,8 +1,6 @@
 package com.example.demosecurity.models;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -15,9 +13,10 @@ import javax.validation.constraints.Size;
  **/
 
 @Entity
-@Table(name = "Person")
-@NoArgsConstructor
-@Data
+@Table(name = "person")
+@Getter
+@Setter
+@EqualsAndHashCode
 public class Person {
 
     @Id
@@ -37,4 +36,13 @@ public class Person {
     @Column(name = "password")
     private String password;
 
+    public Person(String username, int year_of_birth, String password) {
+        this.username = username;
+        this.year_of_birth = year_of_birth;
+        this.password = password;
+    }
+
+    public Person() {
+
+    }
 }
